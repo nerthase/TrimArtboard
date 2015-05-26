@@ -1,0 +1,23 @@
+{
+  "author" : "",
+  "commands" : [
+    {
+      "script" : "script.cocoascript",
+      "handler" : "onRun",
+      "shortcut" : "",
+      "name" : "Trim Artboard",
+      "identifier" : "trim artboard"
+    }
+  ],
+  "menu" : {
+    "items" : [
+      "trim artboard"
+    ],
+    "title" : "Trim Artboard"
+  },
+  "identifier" : "com.example.sketch.1376abf3-ebb5-4cfa-951f-3ece092c7d99",
+  "version" : "1.0",
+  "description" : "",
+  "authorEmail" : "",
+  "name" : "Trim Artboard"
+}
