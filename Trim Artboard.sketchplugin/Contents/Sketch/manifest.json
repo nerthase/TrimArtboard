@@ -1,10 +1,10 @@
 {
-  "author" : "",
+  "author" : "Mario De Santis",
   "commands" : [
     {
       "script" : "script.cocoascript",
       "handler" : "onRun",
-      "shortcut" : "",
+      "shortcut" : "control alt command t",
       "name" : "Trim Artboard",
       "identifier" : "trim artboard"
     }
@@ -17,7 +17,7 @@
   },
   "identifier" : "com.example.sketch.1376abf3-ebb5-4cfa-951f-3ece092c7d99",
   "version" : "1.0",
-  "description" : "",
-  "authorEmail" : "",
+  "description" : "Trim Artboard around content layers",
+  "authorEmail" : "nerthase@gmail.com",
   "name" : "Trim Artboard"
 }

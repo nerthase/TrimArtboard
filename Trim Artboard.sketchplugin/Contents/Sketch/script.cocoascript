@@ -1,52 +1,52 @@
 var onRun = function(context) {
   var artboard = context.selection.firstObject()
-var layers = artboard.layers()
+  var layers = artboard.layers()
 
-var layerTop = layers.firstObject()
-var layerLeft = layers.firstObject()
-var layerRight = layers.firstObject()
-var layerBottom = layers.firstObject()
+  var layerTop = layers.firstObject()
+  var layerLeft = layers.firstObject()
+  var layerRight = layers.firstObject()
+  var layerBottom = layers.firstObject()
 
-// Check border Layers
-for (var i = 0; i < layers.count(); i++) {
-	var layer = layers.objectAtIndex(i)
+  // Check border Layers
+  for (var i = 0; i < layers.count(); i++) {
+  	var layer = layers.objectAtIndex(i)
 
-	if (layer.frame().minY() < layerTop.frame().minY()) {
-		layerTop = layer
-	}
+  	if (layer.frame().minY() < layerTop.frame().minY()) {
+  		layerTop = layer
+  	}
 
-	if (layer.frame().minX() < layerLeft.frame().minX()) {
-		layerLeft = layer
-	}
+  	if (layer.frame().minX() < layerLeft.frame().minX()) {
+  		layerLeft = layer
+  	}
 
-	if (layer.frame().maxX() > layerRight.frame().maxX()) {
-		layerRight = layer
-	}
+  	if (layer.frame().maxX() > layerRight.frame().maxX()) {
+  		layerRight = layer
+  	}
 
-	if (layer.frame().maxY() > layerBottom.frame().maxY()) {
-		layerBottom = layer
-	}
-}
+  	if (layer.frame().maxY() > layerBottom.frame().maxY()) {
+  		layerBottom = layer
+  	}
+  }
 
-// Build new Frame
-var frame = artboard.frame()
+  // Build new Frame
+  var frame = artboard.frame()
 
-var top = layerTop.frame().minY()
-var left = layerLeft.frame().minX()
-var right = frame.width() - layerRight.frame().maxX()
-var bottom = frame.height() - layerBottom.frame().maxY()
+  var top = layerTop.frame().minY()
+  var left = layerLeft.frame().minX()
+  var right = frame.width() - layerRight.frame().maxX()
+  var bottom = frame.height() - layerBottom.frame().maxY()
 
-// Resize Artboard
-frame.subtractHeight(top)
-frame.subtractWidth(left)
-frame.subtractWidth(right)
-frame.subtractHeight(bottom)
+  // Resize Artboard
+  frame.subtractHeight(top)
+  frame.subtractWidth(left)
+  frame.subtractWidth(right)
+  frame.subtractHeight(bottom)
 
-// Move all Layers
-for (var i = 0; i < layers.count(); i++) {
-	var layer = layers.objectAtIndex(i)
+  // Move all Layers
+  for (var i = 0; i < layers.count(); i++) {
+  	var layer = layers.objectAtIndex(i)
 
-	layer.frame().subtractY(top)
-	layer.frame().subtractX(left)
-}
+  	layer.frame().subtractY(top)
+  	layer.frame().subtractX(left)
+  }
 };
